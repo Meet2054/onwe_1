@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const postsRoutes = require('./Routes/Post_route.js'); // Adjust path as per your project structure
 const userRoutes = require('./Routes/userRoutes.js'); // Adjust path as per your project structure
+const magazineRoutes = require ('./Routes/magazines_route.js')
+const commentsRoutes = require ('')
+
 // const adminRoutes = require('./routes/adminRoutes'); // Adjust path as per your project structure
 const { sequelize, testConnection } = require('./Config/database');
 
@@ -9,8 +12,11 @@ const app = express();
 app.use(bodyParser.json());
 
 // Register routes
-app.use('/api/posts', postsRoutes);
 app.use(userRoutes);
+app.use(postsRoutes);
+app.use(commentsRoutes)
+app.use(magazineRoutes);
+
 // app.use('/api/admins', adminRoutes);
 
 // Error handling middleware
